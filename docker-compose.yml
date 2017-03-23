@@ -1,4 +1,4 @@
-version: "3"
+version: "2.1"
 
 services:
   spark-master:
@@ -24,8 +24,8 @@ services:
       - 7077:7077
       - 8080:8080
     volumes:
-      - ./conf/master:/conf
-      - ./data:/data
+      - /var/TheSparkBox/conf/master:/conf
+      - /var/TheSparkBox/data:/data
     restart: always
 
   spark-worker-1:
@@ -51,8 +51,8 @@ services:
     ports:
       - 8081:8081
     volumes:
-      - ./conf/worker:/conf
-      - ./data:/data
+      - /var/TheSparkBox/conf/worker:/conf
+      - /var/TheSparkBox/data:/data
     restart: always
 
   spark-worker-2:
@@ -78,6 +78,7 @@ services:
     ports:
       - 8082:8082
     volumes:
-      - ./conf/worker:/conf
-      - ./data:/data
+      - /var/TheSparkBox/conf/worker:/conf
+      - /var/TheSparkBox/data:/data
     restart: always
+
