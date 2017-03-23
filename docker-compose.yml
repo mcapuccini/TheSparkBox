@@ -26,6 +26,7 @@ services:
     volumes:
       - ./conf/master:/conf
       - ./data:/data
+    restart: always
 
   spark-worker-1:
     image: gettyimages/spark:2.0.2-hadoop-2.7
@@ -52,6 +53,7 @@ services:
     volumes:
       - ./conf/worker:/conf
       - ./data:/data
+    restart: always
 
   spark-worker-2:
     image: gettyimages/spark:2.0.2-hadoop-2.7
@@ -78,3 +80,4 @@ services:
     volumes:
       - ./conf/worker:/conf
       - ./data:/data
+    restart: always
