@@ -24,8 +24,8 @@ services:
       - 7077:7077
       - 8080:8080
     volumes:
-      - /var/TheSparkBox/conf/master:/conf
-      - /var/TheSparkBox/data:/data
+      - ${TSB_DATA_DIR:-.}/conf/master:/conf
+      - ${TSB_DATA_DIR:-.}/data:/data
     restart: always
 
   spark-worker-1:
@@ -51,8 +51,8 @@ services:
     ports:
       - 8081:8081
     volumes:
-      - /var/TheSparkBox/conf/worker:/conf
-      - /var/TheSparkBox/data:/data
+      - ${TSB_DATA_DIR:-.}/conf/worker:/conf
+      - ${TSB_DATA_DIR:-.}/data:/data
     restart: always
 
   spark-worker-2:
@@ -78,7 +78,6 @@ services:
     ports:
       - 8082:8082
     volumes:
-      - /var/TheSparkBox/conf/worker:/conf
-      - /var/TheSparkBox/data:/data
+      - ${TSB_DATA_DIR:-.}/conf/worker:/conf
+      - ${TSB_DATA_DIR:-.}/data:/data
     restart: always
-
