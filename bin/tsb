@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#Abort if docker is not installed
+command -v docker >/dev/null 2>&1 || { \\
+  echo >&2 "TheSparkBox requires docker but it's not installed.  Aborting."; exit 1; }
+
+#Usage
+USAGE=$(cat <<EOF
+Version: latest
+Usage: tsb <command>
+Commands:
+  help                print this message
+  up                  get TheSparkBox up and running (add -d for detached mode)
+  down                tear down TheSparkBox
+EOF)
+
+# Validate command
+if [ $# -eq 0 ]; then
+    >&2 echo "Error: no arguments supplied"
+    echo "$USAGE"
+    exit 1
+fi
+COMMAND=$1
+ALLOWED="help up down"
+if [[ ! $ALLOWED =~ $COMMAND ]]; then
+    >&2 echo "Error: unrecognized command '$COMMAND'"
+    echo "$USAGE"
+    exit 1
+fi
+
+# Print help if required
+if [ "$COMMAND" = "help" ]; then
+    echo "$USAGE"
+    exit 0
+fi
+
+# Wrap docker run
+docker run \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -e TSB_DATA_DIR=$HOME/.TheSparkBox \
+  mcapuccini/thesparkbox \
+  $@
