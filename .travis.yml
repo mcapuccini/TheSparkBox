@@ -1,0 +1,17 @@
+language: python
+
+services:
+  - docker
+
+script:
+  - docker build -t mcapuccini/thesparkbox .
+  - bin/tsb up -d
+  - curl localhost:8080
+  - curl localhost:8081
+  - curl localhost:8082
+  - curl localhost:8888
+  - bin/tsb down
+
+after_success:
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push mcapuccini/thesparkbox
