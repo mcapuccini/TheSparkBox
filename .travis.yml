@@ -6,6 +6,7 @@ services:
 script:
   - docker build -t mcapuccini/thesparkbox .
   - bin/tsb up -d
+  - sleep 60 # Give the stack 60s to get up
   - curl localhost:8080
   - curl localhost:8081
   - curl localhost:8082
