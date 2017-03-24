@@ -2,13 +2,13 @@ version: "2.1"
 
 services:
   spark-master:
-    image: gettyimages/spark:2.0.2-hadoop-2.7
+    image: gettyimages/spark:2.1.0-hadoop-2.7
     command: bin/spark-class org.apache.spark.deploy.master.Master -h spark-master
     hostname: spark-master
     environment:
       MASTER: spark://spark-master:7077
       SPARK_CONF_DIR: /conf
-      SPARK_PUBLIC_DNS: ${SPARK_PUBLIC_DNS:-localhost}
+      SPARK_PUBLIC_DNS: localhost
     expose:
       - 7001
       - 7002
@@ -29,16 +29,16 @@ services:
     restart: always
 
   spark-worker-1:
-    image: gettyimages/spark:2.0.2-hadoop-2.7
+    image: gettyimages/spark:2.1.0-hadoop-2.7
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
-    hostname: worker
+    hostname: spark-worker-1
     environment:
       SPARK_CONF_DIR: /conf
       SPARK_WORKER_CORES: ${SPARK_WORKER_CORES:-2}
       SPARK_WORKER_MEMORY: ${SPARK_WORKER_MEMORY:-1g}
       SPARK_WORKER_PORT: 8881
       SPARK_WORKER_WEBUI_PORT: 8081
-      SPARK_PUBLIC_DNS: ${SPARK_PUBLIC_DNS:-localhost}
+      SPARK_PUBLIC_DNS: localhost
     links:
       - spark-master
     expose:
@@ -56,9 +56,9 @@ services:
     restart: always
 
   spark-worker-2:
-    image: gettyimages/spark:2.0.2-hadoop-2.7
+    image: gettyimages/spark:2.1.0-hadoop-2.7
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
-    hostname: worker
+    hostname: spark-worker-2
     environment:
       SPARK_CONF_DIR: /conf
       SPARK_WORKER_CORES: ${SPARK_WORKER_CORES:-2}
@@ -80,4 +80,20 @@ services:
     volumes:
       - ${TSB_DATA_DIR:-.}/conf/worker:/conf
       - ${TSB_DATA_DIR:-.}/data:/data
+    restart: always
+
+  jupyter:
+    image: jupyter/all-spark-notebook:c33a7dc0eece
+    command: start-notebook.sh --NotebookApp.token='' # This is not for production
+    hostname: jupyter
+    environment:
+      SPARK_OPTS: "--master=spark://spark-master:7077 --conf spark.ui.port=4041"
+      SPARK_PUBLIC_DNS: localhost
+    links:
+      - spark-master
+    ports:
+      - 8888:8888
+      - 4041:4041
+    volumes:
+      - ${TSB_DATA_DIR:-.}/data:/home/jovyan/work
     restart: always
