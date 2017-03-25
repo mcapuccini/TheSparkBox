@@ -8,7 +8,7 @@ TheSparkBox is an all-in-one Spark deployment that you can use to fire up a loca
 - Two Spark workers
 - A Jupyter interface for interactive analysis
 
-Everything is going to get deployed on you workstation, so you will be able to test your Spark applications locally. The advantege of this approach over running Spark applications in `local` mode, is that you will get a sandbox that is closer to a real production environment. 
+Everything is going to get deployed on your workstation, so you will be able to test your Spark applications locally. The advantege of this approach over running Spark applications in `local` mode, is that you will get a sandbox that is closer to a real production environment. 
 
 ## Table of Contents
 
