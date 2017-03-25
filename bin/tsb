@@ -38,5 +38,7 @@ fi
 docker run \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -e TSB_DATA_DIR=$HOME/.TheSparkBox \
+  -e SPARK_WORKER_CORES=$SPARK_WORKER_CORES \
+  -e SPARK_WORKER_MEMORY=$SPARK_WORKER_MEMORY \
   mcapuccini/thesparkbox \
   $@
