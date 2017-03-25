@@ -24,7 +24,7 @@ Everything is going to get deployed on you workstation, so you will be able to t
 TheSparkBox uses [Docker](https://www.docker.com/) to fire up the environment. Plase make sure that Docker is installed in your workstation, and that your user has the rights to pull images and to start containers. You can find the Docker installation guide following this link: https://docs.docker.com/engine/installation.
 
 ### Get TheSparkBox
-TheSparkBox comes as a single executable that you install with one line:
+TheSparkBox comes as a single executable that you can install with one line:
 
 ```bash
 curl -Lo tsb https://raw.githubusercontent.com/mcapuccini/TheSparkBox/master/bin/tsb && chmod +x tsb && sudo mv tsb /usr/local/bin/
