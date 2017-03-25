@@ -7,7 +7,15 @@ TheSparkBox is an all-in-one Spark deployment that you can use to fire up a loca
 
 Everything is going to get deployed on you workstation, so you will be able to test your Spark applications locally. The advantege of this approach over running Spark applications in `local` mode, is that you will get a sandbox that is closer to a real production environment. 
 
-## Getting started
+## Table of Contents
+
+- [Getting Started](#getting-started)
+  - [Install Docker](#install-docker)
+  - [Get TheSparkBox](#get-thesparkbox)
+  - [Run TheSparkBox](#run-thesparkbox)
+- [Configuration](#configuration)
+
+## Getting Started
 
 ### Install Docker
 TheSparkBox uses [Docker](https://www.docker.com/) to fire up the environment. Plase make sure that Docker is installed in your workstation, and that your user has the rights to pull images and to start containers. You can find the Docker installation guide following this link: https://docs.docker.com/engine/installation.
@@ -48,5 +56,5 @@ Your Jupyter notebook, and all of the data in the Jupyter working directory is g
 You can tune TheSparkBox setting the following environment variables:
 
 - **TSB_DATA_DIR:** TheSparkBox data directory (default: `~/.TheSparkBox/data`)
-- **SPARK_WORKER_CORES:** number of cores for each worker (default: 2)
+- **SPARK_WORKER_CORES:** number of cores for each worker (default: `2`)
 - **SPARK_WORKER_MEMORY:** amount of memory  for each worker (default: `1g`)
