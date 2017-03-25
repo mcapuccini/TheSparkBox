@@ -40,7 +40,7 @@ tsb up -d
 
 > **Note:** `-d` stands for *detached mode*, and it runs all of the services in background
 
-The first time you fire up the cluster, the process might take several minutes, as Docker needs to download all of the required images. In the next executions the cluster is going to be ready in a bunch of seconds. 
+The first time you fire up the cluster, the process might take several minutes, as Docker needs to download all of the required images. On the next executions the cluster is going to be ready in a bunch of seconds. 
 
 If everything went good, you should be able to reach the UIs at:
 
