@@ -1,4 +1,7 @@
 # TheSparkBox
+
+[![Build Status](https://travis-ci.org/mcapuccini/TheSparkBox.svg?branch=master)](https://travis-ci.org/mcapuccini/TheSparkBox)
+
 TheSparkBox is an all-in-one Spark deployment that you can use to fire up a local cluster. Deploying TheSparkBox you will get:
 
 - One Spark master
