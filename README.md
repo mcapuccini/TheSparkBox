@@ -53,7 +53,7 @@ When you are done with your local Spark cluster, you can tear it down as it foll
 tsb down
 ```
 
-Your Jupyter notebook, and all of the data in the Jupyter working directory is going to persist in your computer in the `~/.TheSparkBox/data` directory.
+Your Jupyter notebooks, and all of the data in the Jupyter working directory is going to persist in your computer in the `~/.TheSparkBox/data` directory.
 
 ## Configuration
 You can tune TheSparkBox setting the following environment variables:
