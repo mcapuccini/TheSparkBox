@@ -16,7 +16,7 @@ Everything is going to get deployed on your workstation, so you will be able to 
   - [Install Docker](#install-docker)
   - [Get TheSparkBox](#get-thesparkbox)
   - [Run TheSparkBox](#run-thesparkbox)
-- [Where is the distributed storage?](where-is-the-distributed-storage)
+- [Where is the distributed storage?](#where-is-the-distributed-storage)
 - [Configuration](#configuration)
 
 ## Getting Started
