@@ -16,6 +16,7 @@ Everything is going to get deployed on your workstation, so you will be able to 
   - [Install Docker](#install-docker)
   - [Get TheSparkBox](#get-thesparkbox)
   - [Run TheSparkBox](#run-thesparkbox)
+- [Where is the distributed storage?](where-is-the-distributed-storage)
 - [Configuration](#configuration)
 
 ## Getting Started
@@ -54,6 +55,9 @@ tsb down
 ```
 
 Your Jupyter notebooks, and all of the data in the Jupyter working directory is going to persist in your computer in the `~/.TheSparkBox/data` directory.
+
+## Where is the distributed storage?
+There is no need to have a distributed file system in a single-node deployment. However, you may wonder how data can be accessed concurrently by the worker nodes, the master and the Jupyter notebook. TheSparkBox uses your host operating system storage to achieve this. A host path volume is mounted on `/home/jovyan/work` on each cluster component, hence as long as you access files in that path your local Spark cluster is going to handle concurrent operation correctly. 
 
 ## Configuration
 You can tune TheSparkBox setting the following environment variables:
