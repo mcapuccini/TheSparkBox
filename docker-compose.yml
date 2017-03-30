@@ -97,3 +97,4 @@ services:
     volumes:
       - ${TSB_DATA_DIR:-.}/data:/home/jovyan/work
     restart: always
+    pid: "host"
