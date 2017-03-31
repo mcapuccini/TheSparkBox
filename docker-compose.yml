@@ -84,7 +84,7 @@ services:
 
   jupyter:
     image: jupyter/all-spark-notebook:c33a7dc0eece
-    command: jupyter notebook --NotebookApp.token='' # This is not for production
+    command: jupyter notebook --NotebookApp.token='${TSB_JUPYTER_TOKEN}'
     hostname: jupyter
     environment:
       SPARK_OPTS: "--master=spark://spark-master:7077 --conf spark.ui.port=4041"
