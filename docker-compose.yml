@@ -98,4 +98,3 @@ services:
       - ${TSB_DATA_DIR:-.}/data:/home/jovyan/work
     restart: always
     user: "root"
-
