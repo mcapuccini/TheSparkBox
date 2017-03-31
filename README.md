@@ -72,5 +72,6 @@ docker pull mcapuccini/thesparkbox
 You can tune TheSparkBox setting the following environment variables:
 
 - **TSB_DATA_DIR:** TheSparkBox data directory (default: `~/.TheSparkBox/data`)
+- **TSB_JUPYTER_TOKEN:** a string token for Jupyter authentication. If empty, or unset, authentication is disabled (default: empty)
 - **SPARK_WORKER_CORES:** number of cores for each worker (default: `2`)
 - **SPARK_WORKER_MEMORY:** amount of memory  for each worker (default: `1g`)

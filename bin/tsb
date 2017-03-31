@@ -40,5 +40,6 @@ docker run \
   -e TSB_DATA_DIR=$HOME/.TheSparkBox \
   -e SPARK_WORKER_CORES=$SPARK_WORKER_CORES \
   -e SPARK_WORKER_MEMORY=$SPARK_WORKER_MEMORY \
+  -e TSB_JUPYTER_TOKEN=$TSB_JUPYTER_TOKEN \
   mcapuccini/thesparkbox \
   $@
