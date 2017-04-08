@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Abort if docker is not installed
-command -v docker >/dev/null 2>&1 || { \\
+command -v docker >/dev/null 2>&1 || { \
   echo >&2 "TheSparkBox requires docker but it's not installed.  Aborting."; exit 1; }
 
 #Usage
