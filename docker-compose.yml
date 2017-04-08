@@ -95,6 +95,6 @@ services:
       - 8888:8888
       - 4041:4041
     volumes:
-      - ${TSB_DATA_DIR:-.}/data:/home/jovyan/works
+      - ${TSB_DATA_DIR:-.}/data:/home/jovyan/work
     restart: always
     user: "root"
