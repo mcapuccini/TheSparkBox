@@ -26,6 +26,7 @@ services:
     volumes:
       - ${TSB_DATA_DIR:-.}/conf/master:/conf
       - ${TSB_DATA_DIR:-.}/data:/home/jovyan/work
+      - /var/run/docker.sock:/var/run/docker.sock
     restart: always
 
   spark-worker-1:
@@ -53,6 +54,7 @@ services:
     volumes:
       - ${TSB_DATA_DIR:-.}/conf/worker:/conf
       - ${TSB_DATA_DIR:-.}/data:/home/jovyan/work
+      - /var/run/docker.sock:/var/run/docker.sock
     restart: always
 
   spark-worker-2:
@@ -80,6 +82,7 @@ services:
     volumes:
       - ${TSB_DATA_DIR:-.}/conf/worker:/conf
       - ${TSB_DATA_DIR:-.}/data:/home/jovyan/work
+      - /var/run/docker.sock:/var/run/docker.sock
     restart: always
 
   jupyter:
@@ -96,5 +99,6 @@ services:
       - 4041:4041
     volumes:
       - ${TSB_DATA_DIR:-.}/data:/home/jovyan/work
+      - /var/run/docker.sock:/var/run/docker.sock
     restart: always
     user: "root"
