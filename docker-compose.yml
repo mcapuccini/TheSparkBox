@@ -8,7 +8,7 @@ services:
     environment:
       MASTER: spark://spark-master:7077
       SPARK_CONF_DIR: /conf
-      SPARK_PUBLIC_DNS: localhost
+      SPARK_PUBLIC_DNS: ${SPARK_PUBLIC_DNS:-localhost}
     expose:
       - 7001
       - 7002
@@ -39,7 +39,7 @@ services:
       SPARK_WORKER_MEMORY: ${SPARK_WORKER_MEMORY:-1g}
       SPARK_WORKER_PORT: 8881
       SPARK_WORKER_WEBUI_PORT: 8081
-      SPARK_PUBLIC_DNS: localhost
+      SPARK_PUBLIC_DNS: ${SPARK_PUBLIC_DNS:-localhost}
     links:
       - spark-master
     expose:
@@ -67,7 +67,7 @@ services:
       SPARK_WORKER_MEMORY: ${SPARK_WORKER_MEMORY:-1g}
       SPARK_WORKER_PORT: 8881
       SPARK_WORKER_WEBUI_PORT: 8082
-      SPARK_PUBLIC_DNS: localhost
+      SPARK_PUBLIC_DNS: ${SPARK_PUBLIC_DNS:-localhost}
     links:
       - spark-master
     expose:
@@ -91,7 +91,7 @@ services:
     hostname: jupyter
     environment:
       SPARK_OPTS: "--master=spark://spark-master:7077 --conf spark.ui.port=4041"
-      SPARK_PUBLIC_DNS: localhost
+      SPARK_PUBLIC_DNS: ${SPARK_PUBLIC_DNS:-localhost}
     links:
       - spark-master
     ports:
