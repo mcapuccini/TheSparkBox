@@ -14,7 +14,8 @@ script:
   - bin/tsb down
 
 after_success:
-- docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-- docker push mcapuccini/thesparkbox
-on:
-  branch: master
+  - >
+    if [ TRAVIS_BRANCH = 'master' ]; then 
+      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+      docker push mcapuccini/thesparkbox
+    fi
