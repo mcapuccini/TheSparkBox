@@ -36,7 +36,7 @@ services:
     environment:
       SPARK_CONF_DIR: /conf
       SPARK_WORKER_CORES: ${SPARK_WORKER_CORES:-1}
-      SPARK_WORKER_MEMORY: ${SPARK_WORKER_MEMORY:-1g}
+      SPARK_WORKER_MEMORY: ${SPARK_WORKER_MEMORY:-512m}
       SPARK_WORKER_PORT: 8881
       SPARK_WORKER_WEBUI_PORT: 8081
       SPARK_PUBLIC_DNS: ${SPARK_PUBLIC_DNS:-localhost}
@@ -64,7 +64,7 @@ services:
     environment:
       SPARK_CONF_DIR: /conf
       SPARK_WORKER_CORES: ${SPARK_WORKER_CORES:-1}
-      SPARK_WORKER_MEMORY: ${SPARK_WORKER_MEMORY:-1g}
+      SPARK_WORKER_MEMORY: ${SPARK_WORKER_MEMORY:-512m}
       SPARK_WORKER_PORT: 8881
       SPARK_WORKER_WEBUI_PORT: 8082
       SPARK_PUBLIC_DNS: ${SPARK_PUBLIC_DNS:-localhost}
@@ -102,3 +102,21 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
     user: "root"
+
+  zeppelin:
+    image: dylanmei/zeppelin:0.7.0
+    hostname: zeppelin
+    environment:
+      MASTER: spark://spark-master:7077
+      SPARK_PUBLIC_DNS: ${SPARK_PUBLIC_DNS:-localhost}
+      SPARK_SUBMIT_OPTIONS: "--conf spark.ui.port=4042"
+      ZEPPELIN_NOTEBOOK_DIR: /home/jovyan/work
+    links:
+      - spark-master
+    ports:
+      - 9999:8080
+      - 4042:4042
+    volumes:
+      - ${TSB_DATA_DIR:-.}/data:/home/jovyan/work
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
