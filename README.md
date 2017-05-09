@@ -7,6 +7,7 @@ TheSparkBox is an all-in-one Spark deployment that you can use to fire up a loca
 - One Spark master
 - Two Spark workers
 - A Jupyter interface for interactive analysis
+- A Zeppelin interface for interactive analysis
 
 Everything is going to get deployed on your workstation, so you will be able to test your Spark applications locally. The advantege of this approach over running Spark applications in `local` mode, is that you will get a sandbox that is closer to a real production environment.
 
@@ -48,6 +49,7 @@ If everything went good, you should be able to reach the UIs at:
 
 - http://localhost:8080 (Spark master)
 - http://localhost:8888 (Jupyter)
+- http://localhost:9999 (Zeppelin)
 
 When you are done with your local Spark cluster, you can tear it down as it follows:
 
@@ -74,5 +76,5 @@ You can tune TheSparkBox setting the following environment variables:
 - **TSB_DATA_DIR:** TheSparkBox data directory (default: `~/.TheSparkBox/data`)
 - **TSB_JUPYTER_TOKEN:** a string token for Jupyter authentication. If empty, or unset, authentication is disabled (default: empty)
 - **SPARK_WORKER_CORES:** number of cores for each worker (default: `1`)
-- **SPARK_WORKER_MEMORY:** amount of memory  for each worker (default: `1g`)
+- **SPARK_WORKER_MEMORY:** amount of memory  for each worker (default: `512m`)
 - **SPARK_PUBLIC_DNS:** hostname advertised by Spark (default: `localhost`)

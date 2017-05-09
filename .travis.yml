@@ -11,11 +11,12 @@ script:
   - curl localhost:8081
   - curl localhost:8082
   - curl localhost:8888
+  - curl localhost:9999
   - bin/tsb down
 
 after_success:
   - >
-    if [ $TRAVIS_BRANCH = 'master' ] && [ $TRAVIS_PULL_REQUEST = 'false' ]; then 
+    if [ $TRAVIS_BRANCH = 'master' ] && [ $TRAVIS_PULL_REQUEST = 'false' ]; then
       docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
       docker push mcapuccini/thesparkbox
     fi
