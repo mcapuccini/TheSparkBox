@@ -92,6 +92,8 @@ services:
     environment:
       SPARK_OPTS: "--master=spark://spark-master:7077 --conf spark.ui.port=4041"
       SPARK_PUBLIC_DNS: ${SPARK_PUBLIC_DNS:-localhost}
+      SPARK_EXECUTOR_CORES: 1
+      SPARK_EXECUTOR_MEMORY: 512m
     links:
       - spark-master
     ports:
@@ -111,6 +113,8 @@ services:
       SPARK_PUBLIC_DNS: ${SPARK_PUBLIC_DNS:-localhost}
       SPARK_SUBMIT_OPTIONS: "--conf spark.ui.port=4042"
       ZEPPELIN_NOTEBOOK_DIR: /home/jovyan/work
+      SPARK_EXECUTOR_CORES: 1
+      SPARK_EXECUTOR_MEMORY: 512m
     links:
       - spark-master
     ports:
