@@ -78,3 +78,4 @@ You can tune TheSparkBox setting the following environment variables:
 - **SPARK_WORKER_CORES:** number of cores for each worker (default: `1`)
 - **SPARK_WORKER_MEMORY:** amount of memory  for each worker (default: `512m`)
 - **SPARK_PUBLIC_DNS:** hostname advertised by Spark (default: `localhost`)
+- **ZEPPELINHUB_API_TOKEN:** your ZeppelinHub token (default: empty)
