@@ -60,7 +60,7 @@ tsb down
 Your Jupyter notebooks, and all of the data in the Jupyter working directory is going to persist in your computer in the `~/.TheSparkBox/data` directory.
 
 ## Where is the distributed storage?
-There is no need to have a distributed file system in a single-node deployment. However, you may wonder how data can be accessed concurrently by the worker nodes, the master and the Jupyter notebook. TheSparkBox uses your host operating system storage to achieve this. A host path volume is mounted on `/home/jovyan/work` on each cluster component, hence as long as you access files in that path your local Spark cluster is going to handle concurrent operation correctly.
+There is no need to have a distributed file system in a single-node deployment. However, you may wonder how data can be accessed concurrently by the worker nodes, the master and the Jupyter notebook. TheSparkBox uses your host operating system storage to achieve this. A host path volume is mounted on `/data` on each cluster component, hence as long as you access files in that path your local Spark cluster is going to handle concurrent operation correctly.
 
 ## How to update TheSparkBox
 There is no stable TheSparkBox release yet, but we are probably going to update the master at a certain point. If you already installed it and you want to make sure that the version that you are running is the latest, please run:
