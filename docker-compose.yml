@@ -118,6 +118,9 @@ services:
       ZEPPELIN_NOTEBOOK_DIR: /data
       SPARK_EXECUTOR_CORES: ${SPARK_WORKER_CORES:-1}
       SPARK_EXECUTOR_MEMORY: ${SPARK_WORKER_MEMORY:-512m}
+      ZEPPELIN_NOTEBOOK_STORAGE: "org.apache.zeppelin.notebook.repo.GitNotebookRepo, org.apache.zeppelin.notebook.repo.zeppelinhub.ZeppelinHubRepo"
+      ZEPPELINHUB_API_ADDRESS: "https://www.zeppelinhub.com"
+      ZEPPELINHUB_API_TOKEN: ${ZEPPELINHUB_API_TOKEN}
     links:
       - spark-master
     ports:
