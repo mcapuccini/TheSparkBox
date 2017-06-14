@@ -34,10 +34,15 @@ if [ "$COMMAND" = "help" ]; then
     exit 0
 fi
 
+# Set TSB_DATA_DIR if empty or unset
+if [ -z "$TSB_DATA_DIR" ]; then
+    TSB_DATA_DIR="$HOME/.TheSparkBox"
+fi
+
 # Wrap docker run
 docker run \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  -e TSB_DATA_DIR=$HOME/.TheSparkBox \
+  -e TSB_DATA_DIR=$TSB_DATA_DIR \
   -e SPARK_WORKER_CORES=$SPARK_WORKER_CORES \
   -e SPARK_WORKER_MEMORY=$SPARK_WORKER_MEMORY \
   -e TSB_JUPYTER_TOKEN=$TSB_JUPYTER_TOKEN \
