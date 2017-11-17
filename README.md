@@ -66,7 +66,7 @@ There is no need to have a distributed file system in a single-node deployment. 
 There is no stable TheSparkBox release yet, but we are probably going to update the master at a certain point. If you already installed it and you want to make sure that the version that you are running is the latest, please run:
 
 ```bash
-curl -Lo tsb https://raw.githubusercontent.com/mcapuccini/TheSparkBox/master/bin/tsb && chmod +x tsb && sudo mv tsb /usr/local/bin/
+curl -Lo tsb https://raw.githubusercontent.com/mcapuccini/TheSparkBox/master/bin/tsb && sudo chmod +x tsb && sudo mv tsb /usr/local/bin/
 docker pull mcapuccini/thesparkbox
 ```
 
